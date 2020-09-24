@@ -6,27 +6,21 @@ from airflow.operators.dummy_operator import DummyOperator
 from airflow.operators.bash_operator import BashOperator
 from airflow.operators.python_operator import PythonOperator
 
-ACCESS_CONTROL = {
-    "tester": {"can_dag_read","can_dag_edit"}
-}
-
-
 args = {
     'owner': 'Prakshal Jain',
     'start_date': datetime(2020, 7, 7, 15, 1, 0),
     'retries': 0,
     'retry_delay': timedelta(seconds=60),
-    'email': "prakshalj0512@gmail.com",
+    'email': "prakshal.jain@clairvoyantsoft.com",
     'email_on_retry': False,
     'email_on_failure': True,
 }
 dag = DAG(
-    dag_id='role_test', default_args=args,
+    dag_id='email_test', default_args=args,
     schedule_interval=None,
     catchup=False,
     max_active_runs=1,
-    tags=["INFO"],
-    access_control=ACCESS_CONTROL)
+)
 
 
 bash_operator = BashOperator(

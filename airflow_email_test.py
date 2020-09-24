@@ -20,7 +20,7 @@ args = {
 dag = DAG(
     dag_id='airflow_email_test', default_args=args,
     schedule_interval='* * * * *',
-    tags=["INFO"])
+    tags=["INFO"?])
     
 
 
